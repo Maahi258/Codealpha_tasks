@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Modern Calculator</title>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #dda692;
+        font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+        background: #4a2b1f;
+        padding: 25px;
+        border-radius: 25px;
+        width: 320px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .display {
+        background: transparent;
+        color: white;
+        font-size: 48px;
+        text-align: right;
+        border: none;
+        width: 100%;
+        margin-bottom: 20px;
+        outline: none;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    button {
+        height: 65px;
+        font-size: 22px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .num {
+        background: #f4b89a;
+        color: #2b1a14;
+    }
+
+    .op {
+        background: #f29b38;
+        color: white;
+    }
+
+    .top {
+        background: #c49a84;
+        color: #2b1a14;
+    }
+
+    .zero {
+        grid-column: span 2;
+        border-radius: 40px;
+        text-align: left;
+        padding-left: 25px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+    <input type="text" id="display" class="display" value="0" disabled>
+
+    <div class="buttons">
+        <button class="top" onclick="clearAll()">AC</button>
+        <button class="top" onclick="del()">DEL</button>
+        <button class="top" onclick="append('%')">%</button>
+        <button class="op" onclick="append('/')">/</button>
+
+        <button class="num" onclick="append('7')">7</button>
+        <button class="num" onclick="append('8')">8</button>
+        <button class="num" onclick="append('9')">9</button>
+        <button class="op" onclick="append('*')">×</button>
+
+        <button class="num" onclick="append('4')">4</button>
+        <button class="num" onclick="append('5')">5</button>
+        <button class="num" onclick="append('6')">6</button>
+        <button class="op" onclick="append('-')">−</button>
+
+        <button class="num" onclick="append('1')">1</button>
+        <button class="num" onclick="append('2')">2</button>
+        <button class="num" onclick="append('3')">3</button>
+        <button class="op" onclick="append('+')">+</button>
+
+        <button class="num zero" onclick="append('0')">0</button>
+        <button class="num" onclick="append('.')">.</button>
+        <button class="op" onclick="calculate()">=</button>
+</div>
+</div>
+<script>
+    let display = document.getElementById("display");
+
+    function append(value) {
+        if (display.value === "0") display.value = "";
+        display.value += value;
+    }
+
+    function clearAll() {
+        display.value = "0";
+    }
+
+    function del() {
+        display.value = display.value.slice(0, -1) || "0";
+    }
+
+    function calculate() {
+        try {
+            display.value = eval(display.value);
+        } catch {
+            display.value = "Error";
+        }
+    }
+</script>
+
+</head>
+</body>
+</html>

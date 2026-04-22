@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kashi – A Memorable Trip</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #0b0b0b;
+        color: #e91e63;
+        font-family: Algerian, "Cinzel", serif;
+    }
+
+    /* Header */
+    header {
+        text-align: center;
+        padding: 25px;
+        background: #000;
+        letter-spacing: 2px;
+        font-size: 32px;
+        border-bottom: 1px solid #333;
+    }
+    .h2{
+        text-align: center;
+        padding: 25px;
+        letter-spacing:2px ;
+        font-size:32px ;
+        background: #000;
+        color: aqua;
+        border-bottom: 1px solid #333;
+        margin-left: 40px;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        padding: 40px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+    }
+
+    /* Lightbox */
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.95);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 15px;
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<header> "Shehar nahi, sukoon hai Banaras"❤️🧿</header>
+
+<div class="gallery">
+    <img src="https://i.pinimg.com/736x/ca/bd/bd/cabdbdcab1bcf73328e9522698eb9784.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/d0/1f/db/d01fdb5c36094023bf965e3e3b57ee4a.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/d5/52/7c/d5527cb84cc7109e6964d63ff3c55263.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/73/63/c4/7363c421d77093d6409638d4853446d5.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/db/88/fe/db88feb7170de5e00df6bb10bceca857.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/8b/d9/f3/8bd9f3dc5b5bf386cc834185f5b71a43.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/2a/f4/04/2af404b43b0801acb4a45e45925cc969.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/46/47/3b/46473b891cfd12a5932123af4e951986.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/d5/a3/d0/d5a3d0de24d9c89d0272893df9ea21cd.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/8f/79/3c/8f793c1fe4fe5b6c48e6d01aad8dd455.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/89/58/4e/89584e6a8f10aa58a17418e9dc1fd8ca.jpg" onclick="openLightbox(this)">
+    <img src="https://i.pinimg.com/736x/0f/ea/e7/0feae7ca10a93139f3b5a0bfe70c8ef4.jpg" onclick="openLightbox(this)">
+</div>
+<h2>"घट किनारे उम्र गुज़ारे, घट बनरसिया"🦢🐚</h2>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    function openLightbox(img) {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
